@@ -29,7 +29,7 @@ def draw_boxes_and_price(frame, detections):
 
 
 if __name__ == "__main__":
-    model_path = "src/runs/detect/train2/weights/best.pt"
+    model_path = "weights/best.pt"
     video_path = "clips/2_1.MOV"
     output_dir = "output"
     output_path = os.path.join(output_dir, "1_annotated.mp4")
