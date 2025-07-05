@@ -1,7 +1,10 @@
+import argparse
 import cv2
 import os
 from ultralytics import YOLO
 import yaml
+
+
 
 with open("configs/prices.yml", 'r') as f:
     prices = yaml.load(f, Loader=yaml.FullLoader)
@@ -29,10 +32,14 @@ def draw_boxes_and_price(frame, detections):
 
 
 if __name__ == "__main__":
-    model_path = "weights/best.pt"
-    video_path = "clips/2_1.MOV"
+    parser = argparse.ArgumentParser(description='A simple food detector')
+    parser.add_argument('--source', type=str, help='Path to video file')
+    args = parser.parse_args()
+
+    model_path = "src/weights/best.pt"
+    video_path = args.source
     output_dir = "output"
-    output_path = os.path.join(output_dir, "1_annotated.mp4")
+    output_path = os.path.join(output_dir, "demo.mp4")
 
     os.makedirs(output_dir, exist_ok=True)
 
