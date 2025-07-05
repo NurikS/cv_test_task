@@ -1,6 +1,6 @@
 from ultralytics import YOLO
 
-model = YOLO('runs/detect/train2/weights/best.pt')
+model = YOLO('weights/best.pt')
 
 search_space = {
     "lr0": (1e-5, 1e-1),
